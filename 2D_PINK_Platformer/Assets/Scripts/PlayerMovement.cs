@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -78,15 +79,35 @@ public class PlayerMovement : MonoBehaviour
     {
        if(collision.gameObject.tag=="Enemy")
        {
-            playerIsAlive = false;
-            rb.velocity = new Vector2(1f, 3.5f);
-            playerCollider.isTrigger = true;
-            feetCollider.isTrigger = true;
-            
-            anim.SetBool("isAlive", false);
+            Death();
+
        }
    }
-    
+
+    public void Death()
+    {
+        playerIsAlive = false;
+        rb.velocity = new Vector2(1f, 3.5f);
+        playerCollider.isTrigger = true;
+        feetCollider.isTrigger = true;
+
+        anim.SetBool("isAlive", false);
+
+        StartCoroutine(ReloadLevel());
+       
+    }
+
+    IEnumerator ReloadLevel()
+    {
+        
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+
+
 
 
 }

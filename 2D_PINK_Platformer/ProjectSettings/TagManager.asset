@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Boundary
   - Enemy
+  - WIN_DOOR
+  - Key
+  - BIG_Wall
   layers:
   - Default
   - TransparentFX
@@ -42,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PLAYER
+    uniqueID: 2273005495
+    locked: 0
+  - name: wall
+    uniqueID: 371466817
     locked: 0

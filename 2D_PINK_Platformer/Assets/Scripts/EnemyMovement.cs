@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] float speed=0.5f;
+    [SerializeField] float speed = 0.5f;
     Rigidbody2D rb;
 
     private void Awake()
@@ -33,4 +33,13 @@ public class EnemyMovement : MonoBehaviour
     {
         transform.localScale = new Vector2(-(Mathf.Sign(rb.velocity.x)), 1f);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("HEY");
+        if (collision.gameObject.tag == "BIG_Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
