@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(0, jumpHeight);
             rb.velocity += jumpVelocity;
+            FindObjectOfType<AudioManager>().Play("Jump");
         }
     }
 
@@ -92,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
         feetCollider.isTrigger = true;
 
         anim.SetBool("isAlive", false);
+
+        FindObjectOfType<AudioManager>().Play("PlayerDeath");
 
         StartCoroutine(ReloadLevel());
        

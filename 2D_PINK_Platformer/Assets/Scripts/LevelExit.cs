@@ -11,6 +11,7 @@ public class LevelExit : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        FindObjectOfType<AudioManager>().Play("Win");
         StartCoroutine(LoadNextLevel());
     }
 

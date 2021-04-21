@@ -11,6 +11,7 @@ public class KeyPicked : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("KeyPick");
             doorRed.SetActive(false);
             doorGreen.SetActive(true);
             Destroy(gameObject);
