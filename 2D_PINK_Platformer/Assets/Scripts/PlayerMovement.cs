@@ -89,8 +89,11 @@ public class PlayerMovement : MonoBehaviour
     {
         playerIsAlive = false;
         rb.velocity = new Vector2(1f, 3.5f);
-        playerCollider.isTrigger = true;
-        feetCollider.isTrigger = true;
+        //playerCollider.isTrigger = true;
+        //feetCollider.isTrigger = true;
+        Destroy(playerCollider);
+        Destroy(feetCollider);
+
 
         anim.SetBool("isAlive", false);
 
